@@ -1,0 +1,125 @@
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "nome": "Teste",
+  "email": "teste@exemplo.com",
+  "senha": "Senha123"
+}
+
+
+###
+
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "email": "teste@exemplo.com",
+  "senha": "Senha123"
+}
+
+
+###
+
+GET http://localhost:8080/api/clientes
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+
+###
+
+POST http://localhost:8080/api/clientes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+{
+  "nome": "Maria Silva",
+  "telefone": "11999999999",
+  "email": "maria.teste@exemplo.com",
+  "cidade": "São Paulo",
+  "bairro": "Itaquera",
+  "endereco": "Rua de Teste, 123",
+  "status": "PENDENTE",
+  "ativo": true
+}
+
+###
+
+GET http://localhost:8080/api/clientes
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+
+###
+
+PUT http://localhost:8080/api/clientes/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+{
+  "nome": "Maria Silva Atualizada",
+  "telefone": "11988888888",
+  "email": "maria.teste@exemplo.com",
+  "cidade": "São Paulo",
+  "bairro": "Itaquera",
+  "endereco": "Rua de Teste, 123",
+  "status": "AGENDADO",
+  "ativo": true
+}
+
+
+###
+
+DELETE http://localhost:8080/api/clientes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+
+#################################################
+
+POST http://localhost:8080/api/agendamentos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+{
+  "nomeCliente": "Maria Silva",
+  "endereco": "Rua de Teste, 123",
+  "data": "2026-10-20",
+  "hora": "14:30:00",
+  "status": "PENDENTE",
+  "descricao": "Higienização de sofá",
+  "valor": 150.0
+}
+
+
+###
+
+GET http://localhost:8080/api/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+
+###
+
+PUT http://localhost:8080/api/agendamentos/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+{
+  "nomeCliente": "Maria Silva",
+  "endereco": "Rua de Teste, 123",
+  "data": "2026-10-21",
+  "hora": "15:00:00",
+  "status": "AGENDADO",
+  "descricao": "Higienização completa de sofá",
+  "valor": 180.0
+}
+
+###
+
+DELETE http://localhost:8080/api/agendamentos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+### Testar cliente inexistente
+GET http://localhost:8080/api/clientes/99999
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBleGVtcGxvLmNvbSIsImlhdCI6MTc5MjE1OTQ4OSwiZXhwIjoxNzkyMjQ1ODg5fQ.-1NQ0GkpoU8ZerLq9cdbPa8sl3k-eNahu6M4Liao1hA
+
+### Testar proteção da API
+GET http://localhost:8080/api/clientes
