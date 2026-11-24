@@ -13,7 +13,11 @@ data class ClienteRequest(
     val nome: String,
 
     @field:NotBlank(message = "O telefone é obrigatório")
-    @field:Size(max = 20, message = "O telefone deve ter no máximo 20 caracteres")
+    @field:Size(
+        min = 8,
+        max = 20,
+        message = "O telefone deve ter entre 8 e 20 caracteres"
+    )
     val telefone: String,
 
     @field:NotBlank(message = "O e-mail é obrigatório")

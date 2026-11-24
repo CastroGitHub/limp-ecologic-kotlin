@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -67,6 +68,12 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(ktorLibs.client.core)
+            implementation(ktorLibs.client.contentNegotiation)
+            implementation(ktorLibs.serialization.kotlinx.json)
+            api(ktorLibs.client.engineDefaults)
+            implementation("org.jetbrains.androidx.navigation3:navigation3-ui:1.1.1")
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
