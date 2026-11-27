@@ -56,8 +56,14 @@ fun AppNavigation() {
 
             entry<CadastroKey> {
                 CadastroScreen(
-                    aoCadastrar = { irParaInicio() },
-                    aoVoltar = { voltar() }
+                    aoCadastrar = {
+                        SessaoUsuario.encerrarSessao()
+                        backStack.clear()
+                        backStack.add(LoginKey)
+                        },
+                    aoVoltar = {
+                        voltar()
+                    }
                 )
             }
 

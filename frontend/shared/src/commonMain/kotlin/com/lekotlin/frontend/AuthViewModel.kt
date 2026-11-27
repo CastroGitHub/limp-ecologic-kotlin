@@ -1,4 +1,3 @@
-
 package com.lekotlin.frontend
 
 import androidx.compose.runtime.getValue
@@ -40,13 +39,11 @@ class AuthViewModel(
         senha: String
     ) {
         executarAutenticacao {
-            val resposta = repositorio.cadastrar(
+            repositorio.cadastrar(
                 nome = nome.trim(),
                 email = email.trim(),
                 senha = senha
             )
-
-            SessaoUsuario.iniciarSessao(resposta)
         }
     }
 
